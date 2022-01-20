@@ -1,0 +1,124 @@
+{% extends 'basic.html' %}
+{% block title %}Exam Material {% endblock %}
+{% load static %}
+{% load humanize %}
+{% load extras %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'indexboard.css' %}">
+<style>
+    .previousimg {
+        border: 1px solid;
+        width: 200px;
+        height: 200px;
+    }
+
+    @media only screen and (max-width: 540px) {
+
+        .previousimg {
+            width: 140px;
+            height: 117px;
+        }
+    }
+
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center bg-primary text-white">Exam Material</h1>
+        {% for item in allmaterial %}
+        <div class="col-12 col-md-6 col-sm-12 col-lg-6">
+            <div class="row mt-2">
+                <div class="col-5 col-md-5 col-sm-5 col-lg-5">
+                    <img src="/{{item.image}}" class="previousimg">
+                </div>
+                <div class="col-7 col-md-7 col-sm-7 col-lg-7">
+                    <p> File Name is: <b>{{item.name}}</b></p>
+                    <p>File Size : <b>{{item.size}}</b></p>
+                    <p>To Download : <b><a href="{{item.link}}">Click</a></b></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container">
+    <hr>
+    <article class="blog-post mt-3">
+        <div class="row comment">
+            <h2>Comments</h2>
+            <form action="/ExamMaterialComment" method="post"> {% csrf_token %}
+                <div class="form-group mt-2">
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" class="form-control mt-2" id="name" name="name"
+                           placeholder="Enter Name" required>
+                    <label for="email"><b>Email(Email Will not be published)</b></label>
+                    <input type="email" class="form-control mt-2" id="email" name="email"
+                           placeholder="Enter Email" required>
+                    <label for="post"><b>Posted Comments</b></label>
+                    <textarea class="form-control mt-2 " rows="7" id="post" name="comment"
+                              placeholder="Enter Comment here"></textarea>
+                    <input type="hidden" name="parentSno" value="">
+                    <input type="hidden" name="slug" value="{{slug}}">
+                </div>
+                <input type="submit" class="btn btn-primary mt-2 mb-2" value="Comment">
+            </form>
+            {% for comment in comments %}
+            <div class="row mt-2 ms-1">
+                <div class="col-md-1 col-sm-2 col-lg-1 col-2  rounded"><img src="{% static 'image/user.png' %}"
+                                                                            class="mt-2 rounded mx-auto d-block w-100"></div>
+                <div class="col-md-11 col-sm-10 col-lg-11 col-10 bg-white"><b>{{comment.name}}</b> at
+                    <span class="badge bg-secondary">{{comment.timestamp|naturaltime}} </span>
+                    <div>
+                        {{comment.comment}}
+                    </div>
+                    <div class="replay mx-0 mt-2">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#replaybox{{comment.sno}}" aria-expanded="false"
+                                aria-controls="replaybox{{comment.sno}}">
+                            Reply
+                        </button>
+                        <div class="collapse mt-2" id="replaybox{{comment.sno}}">
+                            <div class="card card-body">
+                                <h2>Replay</h2>
+                                <form action="/ExamMaterialComment" method="post"> {% csrf_token %}
+                                    <div class="form-group mt-2">
+                                        <label for="rname"><b>Name</b></label>
+                                        <input type="text" class="form-control mt-2" id="rname" name="name"
+                                               placeholder="Enter Name" required>
+                                        <label for="remail"><b>Email(Email Will not be published)</b></label>
+                                        <input type="email" class="form-control mt-2" id="remail" name="email"
+                                               placeholder="Enter Email" required>
+                                        <label for="rpost"><b>Posted Comments</b></label>
+                                        <textarea class="form-control mt-2 " rows="7" id="rpost" name="comment"
+                                                  placeholder="Enter Comment here"></textarea>
+                                        <input type="hidden" name="parentSno" value="{{comment.sno}}">
+                                        <input type="hidden" name="slug" value="{{slug}}">
+                                    </div>
+                                    <input type="submit" class="btn btn-primary mt-2 mb-2" value="Comment">
+                                </form>
+                            </div>
+                        </div>
+                        {% for reply in replyDict|get_val:comment.sno %}
+                        <div class="row mt-2 ms-1">
+                            <div class="col-md-1 col-sm-2 col-lg-1 col-2  rounded"><img src="{% static 'image/user.png' %}"
+                                                                                        class="mt-2 rounded mx-auto d-block w-100">
+                            </div>
+                            <div class="col-md-11 col-sm-10 col-lg-11 col-10 bg-white"><b>{{reply.name}}</b> at
+                                <span class="badge bg-secondary">{{reply.timestamp|naturaltime}}</span>
+                                <div>
+                                    {{reply.comment}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </article>
+</div>
+{% endblock %}
+{% block js %}{% endblock %}

@@ -1,0 +1,166 @@
+{% extends 'basic.html' %}
+{% block title %}{{resultdata.result_name}}{% endblock %}
+{% load static %}
+{% block metatag %}
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta name="description"
+      content="MyGovernment Jobs On Fill the Online Government Job Form Easily You Can Find the Any type of Job in this Website You can Set the notification for the Next Government Job {{resultdata.meta_desc}}">
+<meta name="keywords"
+      content="Government Jobs,Sarkari Jobs,Government Naukari,Sarkari Naukari,Online Exam Online Government Jobs,Sarkari Result, latest sarkari results, Sarkariresult, Sarkari, Sarkariresults,Samani Computers Online Form,CCSU,Aktu,CCSU Online Exam,Aktu Online Exam
+      Up Board Results,Intermediate Results ,Uttar Pradesh Board,Uttar Pradesh Yojnaye, सरकारी नौकरी,ccs यूनिवर्सिटी ऑनलाइन फॉर्म,AKTU ऑनलाइन फॉर्म,UP बोर्ड रिजल्ट, 12 रिजल्ट,10 रिजल्ट {{resultdata.meta_keywords}}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="{{resultdata.result_name}}"/>
+<meta property="og:description" content="{{jobs.post_information}}"/>
+{% endblock %}
+{% load extras %}
+{% load humanize %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'allpage.css' %}">
+{% endblock %}
+{% block body %}
+<main class="container mt-4">
+    <div class="row g-5">
+        <div class="col-md-9">
+            <article class="blog-post">
+                <h2 class="blog-post-title text-danger">{{resultdata.result_name}}</h2><span class="text-danger">View {{resultdata.viewc}}</span>
+                Share Via <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"><img class="bi" width="30"
+                                                                                                                      height="30"
+                                                                                                                      src="{% static 'image/fb.svg' %}"></a>
+                <a href="https://api.whatsapp.com/send?text={{ request.build_absolute_uri }}"><img class="bi" width="30"
+                                                                                                   src="{% static 'image/whatsapp.jpg' %}"></a>
+
+
+                <div class="row mt-2">
+                 <div class="col-md-12 col-12 col-sm-12 ">
+                        <div class="row">
+                            <div class=" col-md-4 col-4   col-sm-4  cols ">
+                                <p class="text-primary">Name of Post:</p>
+                            </div>
+                            <div class=" col-md-8 col-8   col-sm-8  cols ">
+                                <p>{{resultdata.post_name}}</p>
+                            </div>
+                            <div class=" col-md-4 col-4   col-sm-4  cols ">
+                                <p class="text-primary">Post Date:</p>
+                            </div>
+                            <div class=" col-md-8 col-8   col-sm-8  cols ">
+                                <p>{{resultdata.post_date}}</p>
+                            </div>
+                            <div class=" col-md-4 col-4   col-sm-4  cols ">
+                                <p class="text-primary">Post Update:</p>
+                            </div>
+                            <div class=" col-md-8 col-8   col-sm-8  cols ">
+                                <p>{{resultdata.post_date_update}}</p>
+                            </div>
+                            <div class=" col-md-4 col-4   col-sm-4 cols  ">
+                                <p class="text-primary">Post Information:</p>
+                            </div>
+                            <div class=" col-md-8 col-8   col-sm-8  cols ">
+                                <p>{{resultdata.post_information}}.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="blog-post">
+                <h2 class="mt-2 text-primary text-center">Post Details</h2>
+                <div class="row postdetail">
+                    <div class="col-md-12">
+                        {{resultdata.post_detail|safe}}
+                    </div>
+                </div>
+            </article>
+            <article class="blog-post mt-3">
+                <div class="row comment">
+                    <h2>Comments</h2>
+                    <form action="/ResultComment" method="post"> {% csrf_token %}
+                        <div class="form-group mt-2">
+                            <label for="name"><b>Name</b></label>
+                            <input type="text" class="form-control mt-2" id="name" name="name"
+                                   placeholder="Enter Name" required>
+                            <label for="email"><b>Email(Email Will not be published)</b></label>
+                            <input type="email" class="form-control mt-2" id="email" name="email"
+                                   placeholder="Enter Email" required>
+                            <label for="post"><b>Posted Comments</b></label>
+                            <textarea class="form-control mt-2 " rows="7" id="post" name="comment"
+                                      placeholder="Enter Comment here"></textarea>
+                            <input type="hidden" name="postSno" value="{{resultdata.s_no}}">
+                            <input type="hidden" name="parentSno" value="">
+                        </div>
+                        <input type="submit" class="btn btn-primary mt-2 mb-2" value="Comment">
+                    </form>
+                    {% for comment in comments %}
+                    <div class="row mt-2 ms-1">
+                        <div class="col-md-1 col-sm-2 col-lg-1 col-2  rounded"><img src="{% static 'image/user.png' %}"
+                                                                                    class="mt-2 rounded mx-auto d-block w-100"></div>
+                        <div class="col-md-11 col-sm-10 col-lg-11 col-10 bg-white"><b>{{comment.name}}</b> at
+                            <span class="badge bg-secondary">{{comment.timestamp|naturaltime}} </span>
+                            <div>
+                                {{comment.comment}}
+                            </div>
+                            <div class="replay mx-0 mt-2">
+                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#replaybox{{comment.sno}}" aria-expanded="false"
+                                        aria-controls="replaybox{{comment.sno}}">
+                                    Reply
+                                </button>
+                                <div class="collapse mt-2" id="replaybox{{comment.sno}}">
+                                    <div class="card card-body">
+                                        <h2>Replay</h2>
+                                        <form action="/ResultComment" method="post"> {% csrf_token %}
+                                            <div class="form-group mt-2">
+                                                <label for="rname"><b>Name</b></label>
+                                                <input type="text" class="form-control mt-2" id="rname" name="name"
+                                                       placeholder="Enter Name" required>
+                                                <label for="remail"><b>Email(Email Will not be published)</b></label>
+                                                <input type="email" class="form-control mt-2" id="remail" name="email"
+                                                       placeholder="Enter Email" required>
+                                                <label for="rpost"><b>Posted Comments</b></label>
+                                                <textarea class="form-control mt-2 " rows="7" id="rpost" name="comment"
+                                                          placeholder="Enter Comment here"></textarea>
+                                                <input type="hidden" name="postSno" value="{{resultdata.s_no}}">
+                                                <input type="hidden" name="parentSno" value="{{comment.sno}}">
+
+                                            </div>
+                                            <input type="submit" class="btn btn-primary mt-2 mb-2" value="Comment">
+                                        </form>
+                                    </div>
+                                </div>
+                                {% for reply in replyDict|get_val:comment.sno %}
+                                <div class="row mt-2 ms-1">
+                                    <div class="col-md-1 col-sm-2 col-lg-1 col-2  rounded"><img src="{% static 'image/user.png' %}"
+                                                                                                class="mt-2 rounded mx-auto d-block w-100">
+                                    </div>
+                                    <div class="col-md-11 col-sm-10 col-lg-11 col-10 bg-white"><b>{{reply.name}}</b> at
+                                        <span class="badge bg-secondary">{{reply.timestamp|naturaltime}}</span>
+                                        <div>
+                                            {{reply.comment}}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </div>
+        <div class="col-md-3">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4">
+                    <h4 class="fst-italic">Lastest</h4>
+                    <ol class="list-unstyled mb-0">
+                        {% for post in toppost %}
+                        <li><a target="_blank" href="/{{post.category}}/{{post.slug}}" class="text-decoration-none">{{post.post_name}}</a></li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+{% endblock %}
+{% block js %}
+<script src="{% static 'myjs.js'%}"></script>{% endblock %}

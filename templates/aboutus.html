@@ -1,0 +1,27 @@
+{% extends 'basic.html' %}
+{% block title %} About Us{% endblock %}
+{% block aboutus %}actives{% endblock %}
+{% load static %}
+{% block css %}
+<style>
+</style>
+
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-3 rounded w-100 h-100">
+     <h1 class="text-danger text-center mt-2">About Us</h1>
+    <img src="{% static 'image/aboutus.jpg' %}" class="img-fluid rounded">
+    <span class="text-primary  fs-6">
+        This Website is made for the Student
+        Who Study for the Government Job
+        also this is made for the user who apply the Government
+        Plan or Sarkari Yojnaye
+        This Website is Develop by <b>Sakib Malik</b>
+    </span>
+</div>
+
+{% endblock %}
+{% block js %}{% endblock %}

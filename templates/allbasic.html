@@ -1,0 +1,51 @@
+{% extends 'basic.html' %}
+{% block title %}All {{title}}{% endblock %}
+{% block css %}
+<style>
+    .cols {
+        border: 1px solid #b3c6d8
+    }
+
+    div p {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+    }
+
+    @media only screen and (max-width: 540px) {
+        .cols {
+            padding: 2px;
+        }
+
+        .cols p, .cols {
+            font-size: 9px;
+        }
+
+
+    }
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-1 col-1 col-sm-1"></div>
+        <div class="col-md-9 col-9 col-sm-9">
+            <h1 class="text-center text-white mt-3 bg-success">All {{title}}</h1>
+            <div class="row cols p-4">
+                {% for item in all %}
+                <div class="col-md-9 col-9 col-sm-9">
+                    <a target="_blank" class="text-decoration-none" href="{{item.slug}}"><p>{{forloop.counter}}. {{item.post_name}} <span
+                            class="badge bg-danger">
+                {{item.lastdate}}</span></p></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+{% block js %}{% endblock %}

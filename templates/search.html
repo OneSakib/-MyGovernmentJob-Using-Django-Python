@@ -1,0 +1,185 @@
+{% extends 'basic.html' %}
+{% block home %}actives{% endblock %}
+{% load static %}
+{% block metatag %}
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta name="description"
+      content="MyGovernment Jobs On Fill the Online Government Job Form Easily You Can Find the Any type of Job in this Website You can Set the notification for the Next Government Job">
+<meta name="keywords"
+      content="Government Jobs,Sarkari Jobs,Government Naukari,Sarkari Naukari,Online Exam Online Government Jobs,Sarkari Result, latest sarkari results, Sarkariresult, Sarkari, Sarkariresults,Samani Computers Online Form,CCSU,Aktu,CCSU Online Exam,Aktu Online Exam
+      Up Board Results,Intermediate Results ,Uttar Pradesh Board,Uttar Pradesh Yojnaye, सरकारी नौकरी,ccs यूनिवर्सिटी ऑनलाइन फॉर्म,AKTU ऑनलाइन फॉर्म,UP बोर्ड रिजल्ट, 12 रिजल्ट,10 रिजल्ट ">
+<meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="MyGovernmentJob.co.in"/>
+<meta property="og:description" content="Latest Job, Online Form ,Latest Admit Card,Latest Syllabus"/>
+{% endblock %}
+{% block title %}MyGovernmentJob.co.in : Sarkari Results, Latest Online Form | Result 2021,Online Exam,Government Jobs,Sarkari Jobs{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'indexboard.css' %}">
+{% endblock %}
+{% block body %}
+<!--Menu List -->
+<div class="container ">
+    <div class="row">
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Results</h3>
+            <ul class="list-unstyled">
+                {% for result in resultdata %}
+                <li>
+                    <a href="result/{{result.slug}}">  &bull;{{result.title}}</a>&nbsp;<span class="badge">{{result.post_date_update}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/result" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-secondary text-white p-2 rounded text-center">Admit Card</h3>
+            <ul class="list-unstyled">
+                {% for admitcard in alladmitcard %}
+                <li>
+                    <a href="admitcard/{{admitcard.slug}}">  &bull;{{admitcard.title}}</a><span
+                        class="badge">{{admitcard.admit_card_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/admitcard" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-danger text-white p-2 rounded text-center">Latest Jobs</h3>
+            <ul class="list-unstyled">
+                {% for jobs in alljobs %}
+                <li>
+                    <a href="jobs/{{jobs.slug}}">  &bull;{{jobs.title}}</a> <span class="badge">last date
+                    {{jobs.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/jobs" class="btn btn-primary float-end">View More..</a>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4  ">
+            <h3 class="bg-success text-white p-2 rounded text-center">Answer Key</h3>
+            <ul class="list-unstyled">
+                {% for answerkey in answerkeydata %}
+                <li>
+                   <a href="answerkey/{{answerkey.slug}}">  &bull;{{answerkey.title}}</a>&nbsp;<span
+                        class="badge">{{answerkey.post_date_update}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/answerkey" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-info text-white p-2 rounded text-center">Syllabus</h3>
+            <ul class="list-unstyled">
+                {% for syllabus in syllabusdata %}
+                <li>
+                    <a href="syllabus/{{syllabus.slug}}">  &bull;{{syllabus.title}}</a> <span
+                        class="badge">{{syllabus.post_date_update}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/syllabus" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Sarkari Yojnaye</h3>
+            <ul class="list-unstyled">
+                {% for govtplan in allgovtplan %}
+                <li>
+                   <a href="govtplan/{{govtplan.slug}}">  &bull;{{govtplan.title}}</a><span
+                        class="badge">Last Date {{govtplan.plan_last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/govtplan" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-success text-white p-2 rounded text-center">School/University</h3>
+            <ul class="list-unstyled">
+                {% for schooluni in schoolunidata %}
+                <li>
+                    <a href="schooluni/{{schooluni.slug}}">  &bull;{{schooluni.title}}</a>&nbsp;<span
+                        class="badge">Last Date {{schooluni.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/schooluni" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-danger text-white p-2 rounded text-center">Certification</h3>
+            <ul class="list-unstyled">
+                {% for certification in certificationdata %}
+                <li>
+                   <a href="certification/{{certification.slug}}">  &bull;{{certification.title}}</a>&nbsp;<span class="badge"> Last Date
+                    {{certification.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/certification" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-dark text-white p-2 rounded text-center">Admission</h3>
+            <ul class="list-unstyled">
+                {% for admission in alladmission %}
+                <li>
+                   <a href="admission/{{admission.slug}}"> &bull;{{admission.title}}</a>&nbsp;<span class="badge"> Last Date
+                    {{admission.plan_last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/admission" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-secondary text-white p-2 rounded text-center">Diploma(ITI,CCC)</h3>
+            <ul class="list-unstyled">
+                {% for diploma in alldiploma %}
+                <li>
+                   <a href="diploma/{{diploma.slug}}"> &bull;{{diploma.title}}</a>&nbsp;<span class="badge"> Last Date
+                    {{diploma.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/diploma" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-success text-white p-2 rounded text-center">Private Jobs</h3>
+            <ul class="list-unstyled">
+                {% for private in allprivate %}
+                <li>
+                   <a href="private/{{private.slug}}"> &bull;{{private.title}}</a>&nbsp;<span class="badge"> Last Date
+                    {{private.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/private" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Offline Forms </h3>
+            <ul class="list-unstyled">
+                {% for offline in alloffline %}
+                <li>
+                   <a href="offline/{{offline.slug}}"> &bull;{{offline.title}}</a>&nbsp;<span class="badge"> Last Date
+                    {{offline.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/offline" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-secondary text-white p-2 rounded text-center">Other</h3>
+            <ul class="list-unstyled">
+                {% for other in otherdata %}
+                <li>
+                    <a href="other/{{other.slug}}"> &bull;{{other.title}}</a>&nbsp;<span class="badge">Last Date {{other.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/other" class="btn btn-primary float-end">View More..</a>
+        </div>
+    </div>
+</div>
+<!--About The jobs-->
+
+
+{% endblock %}
+{% block js %}{% endblock %}

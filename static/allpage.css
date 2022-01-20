@@ -1,0 +1,41 @@
+.row div p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.row div a {
+    font-size: 15px;
+    font-weight: bold;
+    color: red;
+}
+
+.container .row .row .cols {
+    border: 1px solid #c1b5b5;
+}
+
+.comment, .comment .btn {
+    font-size: 13px;
+}
+
+@media only screen and (max-width: 540px) {
+    div .row p {
+        font-size: 10px;
+        line-height: 1;
+    }
+
+    div .row h2 {
+        font-size: 15px;
+    }
+
+    .row div a {
+        font-size: 10px;
+    }
+
+    body {
+        line-height: 1;
+    }
+
+    .comment, .comment .btn {
+        font-size: 10px;
+    }
+}

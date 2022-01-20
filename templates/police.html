@@ -1,0 +1,170 @@
+{% extends 'basic.html' %}
+{% block title %}Police{% endblock %}
+{% block police  %}actives{% endblock %}
+{% load static %}
+{% block metatag %}
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta name="description"
+      content="MyGovernment Jobs On Fill the Online Government Job Form Easily You Can Find the Any type of Job in this Website You can Set the notification for the Next Government Job {{police.meta_desc}}">
+<meta name="keywords"
+      content="Government Jobs,Sarkari Jobs,Government Naukari,Sarkari Naukari,Online Exam Online Government Jobs,Sarkari Result, latest sarkari results, Sarkariresult, Sarkari, Sarkariresults,Samani Computers Online Form,CCSU,Aktu,CCSU Online Exam,Aktu Online Exam
+      Up Board Results,Intermediate Results ,Uttar Pradesh Board,Uttar Pradesh Yojnaye, सरकारी नौकरी,ccs यूनिवर्सिटी ऑनलाइन फॉर्म,AKTU ऑनलाइन फॉर्म,UP बोर्ड रिजल्ट, 12 रिजल्ट,10 रिजल्ट {{police.meta_keywords}}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="{{police.name}}"/>
+<meta property="og:description" content="{{police.desc}}"/>
+{% endblock %}
+{% load extras %}
+{% load humanize %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'indexboard.css' %}">
+{% endblock %}
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12  text-center">
+            <h2 class="text-primary fs-1">{{police.name}}</h2><span class="text-danger">View {{police.viewc}}</span>
+            Share Via <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"><img class="bi" width="30"
+                                                                                                                  height="30" src="{% static 'image/fb.svg' %}"></a>
+            <a href="https://api.whatsapp.com/send?text={{ request.build_absolute_uri }}"><img class="bi" width="30" src="{% static 'image/whatsapp.jpg' %}"></a>
+        </div>
+        <div class="col-12 col-sm-12 col-md-1 col-lg-1  text-center ">
+        </div>
+        <div class="col-12 col-sm-12 col-md-10 col-lg-10 mt-4">
+            <p>{{police.desc}}</p>
+        </div>
+
+    </div>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Admit Card</h3>
+            <ul class="list-unstyled">
+                {% for admitcard in alladmitcard %}
+                <li>
+                     <a target="_blank" href="admitcard/{{admitcard.slug}}">&bull;{{admitcard.title}}</a><span class="badge">{{admitcard.admit_card_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Latest Job</h3>
+            <ul class="list-unstyled">
+                {% for jobs in alljobs %}
+                <li>
+                     <a target="_blank" href="jobs/{{jobs.slug}}">&bull;{{jobs.title}}</a> <span class="badge">last date
+                    {{jobs.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Result</h3>
+            <ul class="list-unstyled">
+                {% for result in resultdata %}
+                <li>
+                    <a target="_blank" href="result/{{result.slug}}">&bull;{{result.title}}</a>&nbsp;<span
+                        class="badge">{{result.post_date_update}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-12 col-sm-6 col-md-2 col-lg-2  "></div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4  ">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Answer Key</h3>
+            <ul class="list-unstyled">
+                {% for answerkey in answerkeydata %}
+                <li>
+                     <a target="_blank" href="answerkey/{{answerkey.slug}}">&bull;{{answerkey.title}}</a>&nbsp;<span
+                        class="badge">{{answerkey.post_date_update}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Syllabus</h3>
+            <ul class="list-unstyled">
+                {% for syllabus in syllabusdata %}
+                <li>
+                     <a target="_blank" href="syllabus/{{syllabus.slug}}">&bull;{{syllabus.title}}</a> <span
+                        class="badge">{{syllabus.post_date_update}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <article class="blog-post mt-3">
+        <div class="row comment">
+            <h2>Comments</h2>
+            <form action="/PoliceComment" method="post"> {% csrf_token %}
+                <div class="form-group mt-2">
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" class="form-control mt-2" id="name" name="name"
+                           placeholder="Enter Name" required>
+                    <label for="email"><b>Email(Email Will not be published)</b></label>
+                    <input type="email" class="form-control mt-2" id="email" name="email"
+                           placeholder="Enter Email" required>
+                    <label for="post"><b>Posted Comments</b></label>
+                    <textarea class="form-control mt-2 " rows="7" id="post" name="comment"
+                              placeholder="Enter Comment here"></textarea>
+                    <input type="hidden" name="parentSno" value="">
+                </div>
+                <input type="submit" class="btn btn-primary mt-2 mb-2" value="Comment">
+            </form>
+            {% for comment in comments %}
+            <div class="row mt-2 ms-1">
+                <div class="col-md-1 col-sm-2 col-lg-1 col-2  rounded"><img src="{% static 'image/user.png' %}" class="mt-2 rounded mx-auto d-block w-100"></div>
+                <div class="col-md-11 col-sm-10 col-lg-11 col-10 bg-white"><b>{{comment.name}}</b> at
+                    <span class="badge bg-secondary">{{comment.timestamp|naturaltime}} </span>
+                    <div>
+                        {{comment.comment}}
+                    </div>
+                    <div class="replay mx-0 mt-2">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#replaybox{{comment.sno}}" aria-expanded="false"
+                                aria-controls="replaybox{{comment.sno}}">
+                            Reply
+                        </button>
+                        <div class="collapse mt-2" id="replaybox{{comment.sno}}">
+                            <div class="card card-body">
+                                <h2>Replay</h2>
+                                <form action="/PoliceComment" method="post"> {% csrf_token %}
+                                    <div class="form-group mt-2">
+                                        <label for="rname"><b>Name</b></label>
+                                        <input type="text" class="form-control mt-2" id="rname" name="name"
+                                               placeholder="Enter Name" required>
+                                        <label for="remail"><b>Email(Email Will not be published)</b></label>
+                                        <input type="email" class="form-control mt-2" id="remail" name="email"
+                                               placeholder="Enter Email" required>
+                                        <label for="rpost"><b>Posted Comments</b></label>
+                                        <textarea class="form-control mt-2 " rows="7" id="rpost" name="comment"
+                                                  placeholder="Enter Comment here"></textarea>
+                                        <input type="hidden" name="parentSno" value="{{comment.sno}}">
+                                    </div>
+                                    <input type="submit" class="btn btn-primary mt-2 mb-2" value="Comment">
+                                </form>
+                            </div>
+                        </div>
+                        {% for reply in replyDict|get_val:comment.sno %}
+                        <div class="row mt-2 ms-1">
+                            <div class="col-md-1 col-sm-2 col-lg-1 col-2  rounded"><img src="{% static 'image/user.png' %}"
+                                                                                        class="mt-2 rounded mx-auto d-block w-100">
+                            </div>
+                            <div class="col-md-11 col-sm-10 col-lg-11 col-10 bg-white"><b>{{reply.name}}</b> at
+                                <span class="badge bg-secondary">{{reply.timestamp|naturaltime}}</span>
+                                <div>
+                                    {{reply.comment}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </article>
+</div>
+{% endblock %}
+{% block js %}{% endblock %}

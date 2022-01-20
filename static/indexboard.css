@@ -1,0 +1,85 @@
+.row a:hover {
+    color: black;
+}
+
+.row marquee a {
+    color: blue;
+    padding: 5px;
+    font-weight: bold;;
+}
+
+.row marquee a:hover {
+    color: black;
+}
+
+.row ul {
+    border: 1px solid #b3c6d8;
+    padding: .5rem;
+    border-radius: 4px;
+    margin-top: -8px;
+}
+
+.row div li a {
+    color: blue;;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.row ul li a {
+    text-decoration: none;
+}
+
+.badge {
+    background-color: #e80000bf;
+    font-size: 10px;
+}
+
+#toppost {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.row div li {
+    line-height: 1.5;
+}
+
+.comment, .comment .btn {
+    font-size: 13px;
+}
+
+@media only screen and (max-width: 540px) {
+    #toppost {
+        font-size: 9px;
+    }
+
+    .row div h3 {
+        font-size: 12px;
+    }
+
+    .row div li a {
+        font-size: 8px;
+        font-weight: bold;
+    }
+
+    .row div li {
+        padding: 0px;
+        line-height: .5;
+    }
+
+    .badge {
+        font-size: 5px;
+    }
+
+    .row div .btn {
+        font-size: 8px;
+        padding: 2px;
+    }
+
+    .row div p {
+        font-size: 10px;
+    }
+
+    .comment, .comment .btn {
+        font-size: 10px;
+    }
+}

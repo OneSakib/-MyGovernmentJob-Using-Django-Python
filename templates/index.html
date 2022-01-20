@@ -1,0 +1,386 @@
+{% extends 'basic.html' %}
+{% block home %}actives{% endblock %}
+{% load static %}
+{% block metatag %}
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta name="description"
+      content="MyGovernment Jobs On Fill the Online Government Job Form Easily You Can Find the Any type of Job in this Website You can Set the notification for the Next Government Job">
+<meta name="keywords"
+      content="Government Jobs,Sarkari Jobs,Government Naukari,Sarkari Naukari,Online Exam Online Government Jobs,Sarkari Result, latest sarkari results, Sarkariresult, Sarkari, Sarkariresults,Samani Computers Online Form,CCSU,Aktu,CCSU Online Exam,Aktu Online Exam
+      Up Board Results,Intermediate Results ,Uttar Pradesh Board,Uttar Pradesh Yojnaye, सरकारी नौकरी,ccs यूनिवर्सिटी ऑनलाइन फॉर्म,AKTU ऑनलाइन फॉर्म,UP बोर्ड रिजल्ट, 12 रिजल्ट,10 रिजल्ट ">
+<meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="MyGovernmentJob.co.in"/>
+<meta property="og:description" content="Latest Job, Online Form ,Latest Admit Card,Latest Syllabus"/>
+{% endblock %}
+{% block title %}MyGovernmentJob.co.in : Sarkari Results, Latest Online Form | Result 2021,Online Exam,Government Jobs,Sarkari Jobs{% endblock %}
+{% block css %}
+<style>
+    .row a:hover {
+        color: black;
+    }
+
+    .row marquee a {
+        color: blue;
+        padding: 5px;
+        font-weight: bold;;
+    }
+
+    .row marquee a:hover {
+        color: black;
+    }
+
+    .row ul {
+        border: 1px solid #b3c6d8;
+        padding: .5rem;
+        border-radius: 4px;
+        margin-top: -8px;
+    }
+
+    .row div li a {
+        color: blue;;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .row ul li a {
+        text-decoration: none;
+    }
+
+    .badge {
+        background-color: #e80000bf;
+        font-size: 10px;
+    }
+
+    #toppost {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .row div li {
+        line-height: 1.5;
+    }
+
+    .comment, .comment .btn {
+        font-size: 13px;
+    }
+
+    @media only screen and (max-width: 540px) {
+        #toppost {
+            font-size: 9px;
+        }
+
+        .row div h3 {
+            font-size: 12px;
+        }
+
+        .row div li a {
+            font-size: 8px;
+            font-weight: bold;
+        }
+
+        .row div li {
+            padding: 0px;
+            line-height: .5;
+        }
+
+        .badge {
+            font-size: 5px;
+        }
+
+        .row div .btn {
+            font-size: 8px;
+            padding: 2px;
+        }
+
+        .row div p {
+            font-size: 10px;
+        }
+
+        .comment, .comment .btn {
+            font-size: 10px;
+        }
+    }
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="container mt-3 overflow-hidden p-3">
+
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <marquee behavior="alternate" direction="right" alternateamount="2" onmouseover="this.stop();"
+                     onmouseout="this.start();"><a
+                    href="{{topmarquee.link1}}"
+                    class="text-decoration-none"><img src="{% static 'image/new.gif' %}">
+                {{topmarquee.post_name1}}</a>||<a href="{{topmarquee.link2}}" class="text-decoration-none ">
+                <img src="{% static 'image/new.gif' %}">{{topmarquee.post_name2}}</a>||<a href="{{topmarquee.link3}}"
+                                                                                          class="text-decoration-none ">
+                <img src="{% static 'image/new.gif' %}"> {{topmarquee.post_name3}}</a></marquee>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <marquee behavior="alternate" direction="left" onmouseover="this.stop();" onmouseout="this.start();"
+                     alternateamount="2"><a
+                    href="{{topmarquee.link4}}"
+                    class="text-decoration-none "><img src="{% static 'image/new.gif' %}">{{topmarquee.post_name4}}</a>||<a
+                    href="{{topmarquee.link5}}"
+                    class="text-decoration-none">
+                <img src="{% static 'image/new.gif' %}"> {{topmarquee.post_name5}}</a>||<a href="{{topmarquee.link6}}"
+                                                                                           class="text-decoration-none ">
+                <img src="{% static 'image/new.gif' %}">{{topmarquee.post_name6}}</a></marquee>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <marquee behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();" direction="left"
+                     alternateamount="2"><a
+                    href="{{topmarquee.link7}}"
+                    class="text-decoration-none "><img src="{% static 'image/new.gif' %}">{{topmarquee.post_name7}}</a>||<a
+                    href="{{topmarquee.link8}}"
+                    class="text-decoration-none ">
+                <img src="{% static 'image/new.gif' %}">{{topmarquee.post_name8}}
+            </a>||<a href="{{topmarquee.link9}}" class="text-decoration-none "><img src="{% static 'image/new.gif' %}">{{topmarquee.post_name9}}</a>
+            </marquee>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <marquee behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();" direction="right"
+                     alternateamount="2"><a
+                    href="{{topmarquee.link10}}"
+                    class="text-decoration-none"><img src="{% static 'image/new.gif' %}">{{topmarquee.post_name10}}</a>||
+                <a href="{{topmarquee.link11}}"
+                   class="text-decoration-none">
+                    <img src="{% static 'image/new.gif' %}">{{topmarquee.post_name11}}</a>||<a
+                        href="{{topmarquee.link12}}"
+                        class="text-decoration-none ">
+                    <img src="{% static 'image/new.gif' %}">{{topmarquee.post_name12}}</a></marquee>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-8">
+                    <p class="float-end">
+                        Join Us on <a class="text-muted text-decoration-none" href="https://twitter.com">
+                        <img src="{% static 'image/twitter.png' %}" class="bi" width="24" height="24">
+                        Twitter
+                    </a>
+                        <a class="text-muted text-decoration-none" href="https://instagram.com">
+                            <img src="{% static 'image/instagram.png' %}" class="bi" width="24" height="24">
+                            Instagram
+                        </a>
+                        <a class="text-muted text-decoration-none" href="https://facebook.com">
+                            <img src="{% static 'image/fb.svg' %}" class="bi" width="24" height="24">
+                            Facebook
+                        </a>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="{% static 'image/live.gif' %}" style="width: 60px" class="float-end mb-1">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center gy-2 ">
+        {% for post in toppost %}
+        <a href="{{post.link}}"
+           class="btn col-md-3 col-sm-3 col-lg-3 col-3 text-center text-wrap text-white {{post.color}} p-0 m-0 mt-2"
+           id="toppost">
+            {{post.post_name}}
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<!--Menu List -->
+<div class="container ">
+    <div class="row">
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Results</h3>
+            <ul class="list-unstyled">
+                {% for result in resultdata %}
+                <li>
+                    <a href="result/{{result.slug}}"> &bull; {{result.title}}</a>&nbsp;<span class="badge">{{result.post_date_update}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/result" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-secondary text-white p-2 rounded text-center">Admit Card</h3>
+            <ul class="list-unstyled">
+                {% for admitcard in alladmitcard %}
+                <li>
+                    <a href="admitcard/{{admitcard.slug}}"> &bull; {{admitcard.title}}</a><span
+                        class="badge">{{admitcard.admit_card_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/admitcard" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-danger text-white p-2 rounded text-center">Latest Jobs</h3>
+            <ul class="list-unstyled">
+                {% for jobs in alljobs %}
+                <li>
+                    <a href="jobs/{{jobs.slug}}"> &bull; {{jobs.title}}</a> <span class="badge">last date
+                    {{jobs.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/jobs" class="btn btn-primary float-end">View More..</a>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4  ">
+            <h3 class="bg-success text-white p-2 rounded text-center">Answer Key</h3>
+            <ul class="list-unstyled">
+                {% for answerkey in answerkeydata %}
+                <li>
+                    <a href="answerkey/{{answerkey.slug}}"> &bull; {{answerkey.title}}</a>&nbsp;<span
+                        class="badge">{{answerkey.post_date_update}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/answerkey" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 ">
+            <h3 class="bg-info text-white p-2 rounded text-center">Syllabus</h3>
+            <ul class="list-unstyled">
+                {% for syllabus in syllabusdata %}
+                <li>
+                    <a href="syllabus/{{syllabus.slug}}"> &bull; {{syllabus.title}}</a> <span
+                        class="badge">{{syllabus.post_date_update}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/syllabus" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Sarkari Yojnaye</h3>
+            <ul class="list-unstyled">
+                {% for govtplan in allgovtplan %}
+                <li>
+                    <a href="govtplan/{{govtplan.slug}}"> &bull; {{govtplan.title}}</a><span
+                        class="badge">Last Date {{govtplan.plan_last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/govtplan" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-success text-white p-2 rounded text-center">School/University</h3>
+            <ul class="list-unstyled">
+                {% for schooluni in schoolunidata %}
+                <li>
+                    <a href="schooluni/{{schooluni.slug}}"> &bull; {{schooluni.title}}</a>&nbsp;<span
+                        class="badge">Last Date {{schooluni.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/schooluni" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-danger text-white p-2 rounded text-center">Certification</h3>
+            <ul class="list-unstyled">
+                {% for certification in certificationdata %}
+                <li>
+                    <a href="certification/{{certification.slug}}"> &bull; {{certification.title}}</a>&nbsp;<span
+                        class="badge"> Last Date
+                    {{certification.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/certification" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-dark text-white p-2 rounded text-center">Admission</h3>
+            <ul class="list-unstyled">
+                {% for admission in alladmission %}
+                <li>
+                    <a href="admission/{{admission.slug}}"> &bull; {{admission.title}}</a>&nbsp;<span class="badge"> Last Date
+                    {{admission.plan_last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/admission" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-secondary text-white p-2 rounded text-center">Diploma(ITI,CCC)</h3>
+            <ul class="list-unstyled">
+                {% for diploma in alldiploma %}
+                <li>
+                    <a href="diploma/{{diploma.slug}}"> &bull; {{diploma.title}}</a>&nbsp;<span class="badge"> Last Date
+                    {{diploma.plan_last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/diploma" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-success text-white p-2 rounded text-center">Private Jobs</h3>
+            <ul class="list-unstyled">
+                {% for private in allprivate %}
+                <li>
+                    <a href="private/{{private.slug}}"> &bull; {{private.title}}</a>&nbsp;<span class="badge"> Last Date
+                    {{private.plan_last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/private" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-primary text-white p-2 rounded text-center">Offline Forms </h3>
+            <ul class="list-unstyled">
+                {% for offline in alloffline %}
+                <li>
+                    <a href="offline/{{offline.slug}}"> &bull; {{offline.title}}</a>&nbsp;<span class="badge"> Last Date
+                    {{offline.plan_last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/offline" class="btn btn-primary float-end">View More..</a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+            <h3 class="bg-secondary text-white p-2 rounded text-center">Other</h3>
+            <ul class="list-unstyled">
+                {% for other in otherdata %}
+                <li>
+                    <a href="other/{{other.slug}}"> &bull; {{other.title}}</a>&nbsp;<span class="badge">Last Date {{other.last_date}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/allbasic/other" class="btn btn-primary float-end">View More..</a>
+        </div>
+    </div>
+</div>
+<!--About The jobs-->
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12 ">
+            <hr>
+            <h1 class="text-danger">MyGovernmentJob.co.in<h3 class="text-success">View Counter ({{viewcounter}})</h3>
+            </h1>
+            <h3 class="text-center mt-3 text-primary">How to get Government Job</h3>
+            <p class="text-success ">If you are tired of searching jobs for a long time then it’s time to get Jobs
+                in this website we update new new jobs time to time if follow this you can get better job for your
+                requirement
+                and we provide new Content time to time
+                We provide in this latest information of Sarkari Naukri. Here at Sarkari naukri you will be daily
+                updated about Sarkari Jobs, Sarkari
+                Exam, Answer Keys, Syllabuses, Admission, Interview Letter and Results.
+                You can know about all the latest information of Central Govt Jobs like SSC CGL Tier I Examination 2021,
+                UPSC Combined Medical
+                Services, SSC MTS Recruitment 2021, Lok Sabha Secretariat Recruitment, Rajya Sabha Recruitment etc.
+            </p>
+            <h3 class="text-center mt-3 text-primary">Best Career option for Students and Learners</h3>
+            <p class="text-success ">here you can find all the information about University examination and all India
+                Entrances for
+                various courses . Admissions of State and Central Universities like, BHU UET/PET Admission,
+                JNU Online Admission Form, DU UG Admission, CCS University Admission, JEE Main Online Form, NATA
+                Admission, CLAT Online Form, UGC NET
+                Online Form are available here.
+                about admission, information about semester/annual examinations of
+                universities
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block js %}{% endblock %}
