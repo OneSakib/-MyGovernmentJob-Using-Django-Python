@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l4+d6zxxoh#+h)dsheitb#ot-e+&z-hdi&pg1mni4kyq0w2sdf'
-
+# SECRET_KEY = 'django-insecure-l4+d6zxxoh#+h)dsheitb#ot-e+&z-hdi&pg1mni4kyq0w2sdf'
+ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost","127.0.0.1","mygovernmentjob.herokuapp.com"]
 
 # Application definition
 
@@ -126,3 +126,7 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CSRF_TRUSTED_ORIGINS = ["https://mygovernmentjob.herokuapp.com"]
+# Redirect http to https
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
