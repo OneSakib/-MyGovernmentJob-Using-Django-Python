@@ -71,6 +71,7 @@ urlpatterns = [
     path("previouspaper/<str:slug>", views.Previouspaper, name="News Paper page"),
     path("PreviousPaperComment", views.PreviousPaperComments, name="News Paper page Comment"),
     path("exammaterial/<str:slug>", views.ExamMaterials, name="Exam material"),
-    path("ExamMaterialComment", views.ExamMaterialComments, name="exam material Comment")
+    path("ExamMaterialComment", views.ExamMaterialComments, name="exam material Comment"),
+    path('sitemap.xml/',views.sitemapgenerate,name='siteamp')
 
 ]

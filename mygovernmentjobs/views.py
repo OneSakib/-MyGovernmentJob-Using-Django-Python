@@ -1111,3 +1111,5 @@ def ExamMaterialComments(request):
     else:
         messages.error(request, " Some Error Issue Found Not Comment is not send")
         return redirect('/')
+def sitemapgenerate(request):
+    return render(request,'sitemap.xml',content_type='text/xml')
