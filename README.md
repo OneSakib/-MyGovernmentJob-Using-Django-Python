@@ -1,18 +1,23 @@
-# MyGovernmentJob
-mygovernmentjob
-<h>MyGovernmentJob </h>
-<pre>is a website which is build by Sakib Malik 
-and deploy in the server "DigitalOcean" to check how to work my website 
-To use this website to clone the file
-First install in the OS python 3.9 or later version
-and then add the path into the Path Manager 
-after that open the terminal and write the command 
-"pip install django"
-and after that open the folder project in which manage.py file is exist
-open the terminal in this location and write the Comamnd
-"python manage.py runserver"
-after that it allot a url copy that url and paste in the url Box of the Browser
+[![Python 3.10 ](https://img.shields.io/badge/python-3.10-yellow.svg)](https://www.python.org/downloads/release/python-3105/)
+![Django 4 ](https://img.shields.io/badge/Django-4.0-green.svg)
+# My Governtment JOB Notification
 
+## Installation
 
+**1.clone Repository & Install Packages**
+```sh
+git clone https://github.com/OneSakib/<repo_name>.git
+pip install -r requirements.txt
+```
+**2.Setup Virtualenv**
+```sh
+virtualenv env
+source env/bin/activate
+```
+**3.Migrate & Start Server**
+```sh
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
 
-</pre>
